@@ -86,7 +86,7 @@ export function AppShell({
       </div>
 
       <nav className="fixed inset-x-0 bottom-0 flex justify-around border-t border-border bg-surface/95 py-2 backdrop-blur md:hidden">
-        {[nav[0], nav[4], nav[5]].map((item) => (
+        {nav.filter((n) => n.enabled).map((item) => (
           <Link
             key={item.label}
             to={item.to}
