@@ -98,6 +98,117 @@ export const severityBuckets = [
   { label: "Low", count: 5, color: "var(--color-low)" },
 ];
 
+export interface CitySector {
+  name: string;
+  status: "Under Attack" | "Degraded" | "Secure";
+  riskScore: number;
+  devices: number;
+  sensorsOnline: number;
+  sensorsTotal: number;
+  trafficMbps: number;
+  activeAlerts: number;
+  lastEvent: string;
+  uptime: string;
+}
+
+export const citySectors: CitySector[] = [
+  {
+    name: "Hospital",
+    status: "Under Attack",
+    riskScore: 91,
+    devices: 342,
+    sensorsOnline: 118,
+    sensorsTotal: 124,
+    trafficMbps: 486,
+    activeAlerts: 4,
+    lastEvent: "Suspicious login on patient records server",
+    uptime: "99.2%",
+  },
+  {
+    name: "Bank",
+    status: "Secure",
+    riskScore: 38,
+    devices: 214,
+    sensorsOnline: 96,
+    sensorsTotal: 96,
+    trafficMbps: 312,
+    activeAlerts: 1,
+    lastEvent: "Phishing URL blocked at gateway",
+    uptime: "99.9%",
+  },
+  {
+    name: "Government",
+    status: "Secure",
+    riskScore: 44,
+    devices: 187,
+    sensorsOnline: 82,
+    sensorsTotal: 84,
+    trafficMbps: 205,
+    activeAlerts: 1,
+    lastEvent: "Port scan detected from 10.0.0.23",
+    uptime: "99.8%",
+  },
+  {
+    name: "College",
+    status: "Secure",
+    riskScore: 21,
+    devices: 428,
+    sensorsOnline: 141,
+    sensorsTotal: 142,
+    trafficMbps: 654,
+    activeAlerts: 0,
+    lastEvent: "New device login detected",
+    uptime: "99.7%",
+  },
+  {
+    name: "Traffic System",
+    status: "Degraded",
+    riskScore: 57,
+    devices: 156,
+    sensorsOnline: 60,
+    sensorsTotal: 68,
+    trafficMbps: 178,
+    activeAlerts: 2,
+    lastEvent: "8 sensors offline in grid zone C-4",
+    uptime: "97.4%",
+  },
+  {
+    name: "Utilities",
+    status: "Secure",
+    riskScore: 18,
+    devices: 98,
+    sensorsOnline: 52,
+    sensorsTotal: 52,
+    trafficMbps: 94,
+    activeAlerts: 0,
+    lastEvent: "Routine firmware update completed",
+    uptime: "100%",
+  },
+];
+
+export const cityInfrastructure = [
+  { label: "CCTV Cameras", online: 482, total: 512 },
+  { label: "Traffic Sensors", online: 236, total: 248 },
+  { label: "Smart Meters", online: 1098, total: 1104 },
+  { label: "Public Wi-Fi APs", online: 141, total: 150 },
+  { label: "Environmental Sensors", online: 88, total: 90 },
+];
+
+export const cityEvents = [
+  { time: "10:31:02", sector: "Hospital", text: "Honeypot triggered on VLAN 12" },
+  { time: "10:28:12", sector: "Hospital", text: "Suspicious login on patient records server" },
+  { time: "10:24:45", sector: "Hospital", text: "Multiple failed logins from 192.168.1.50" },
+  { time: "10:21:05", sector: "Bank", text: "Phishing URL blocked: bad-login.com" },
+  { time: "10:19:33", sector: "Government", text: "Port scan detected from 10.0.0.23" },
+  { time: "10:11:57", sector: "Traffic System", text: "Sensor cluster C-4 heartbeat lost" },
+];
+
+export const sectorStatusStyles: Record<CitySector["status"], string> = {
+  "Under Attack": "bg-high/15 text-high border-high/40",
+  Degraded: "bg-medium/15 text-medium border-medium/40",
+  Secure: "bg-safe/15 text-safe border-safe/40",
+};
+
 export const incidentTimeline = [
   { time: "10:28:12", text: "Multiple failed login attempts started" },
   { time: "10:30:21", text: "Successful login from 192.168.1.50" },
