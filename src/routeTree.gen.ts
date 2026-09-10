@@ -10,18 +10,35 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AiAnalysisRouteImport } from './routes/ai-analysis'
 import { Route as AlertsRouteImport } from './routes/alerts'
+import { Route as AttackSimulatorRouteImport } from './routes/attack-simulator'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IncidentsRouteImport } from './routes/incidents'
+import { Route as MonitoringRouteImport } from './routes/monitoring'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as ResponseCenterRouteImport } from './routes/response-center'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SmartCityRouteImport } from './routes/smart-city'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiAnalysisRoute = AiAnalysisRouteImport.update({
+  id: '/ai-analysis',
+  path: '/ai-analysis',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AlertsRoute = AlertsRouteImport.update({
   id: '/alerts',
   path: '/alerts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AttackSimulatorRoute = AttackSimulatorRouteImport.update({
+  id: '/attack-simulator',
+  path: '/attack-simulator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -34,39 +51,126 @@ const IncidentsRoute = IncidentsRouteImport.update({
   path: '/incidents',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MonitoringRoute = MonitoringRouteImport.update({
+  id: '/monitoring',
+  path: '/monitoring',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResponseCenterRoute = ResponseCenterRouteImport.update({
+  id: '/response-center',
+  path: '/response-center',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SmartCityRoute = SmartCityRouteImport.update({
+  id: '/smart-city',
+  path: '/smart-city',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai-analysis': typeof AiAnalysisRoute
   '/alerts': typeof AlertsRoute
+  '/attack-simulator': typeof AttackSimulatorRoute
   '/dashboard': typeof DashboardRoute
   '/incidents': typeof IncidentsRoute
+  '/monitoring': typeof MonitoringRoute
+  '/reports': typeof ReportsRoute
+  '/response-center': typeof ResponseCenterRoute
+  '/settings': typeof SettingsRoute
+  '/smart-city': typeof SmartCityRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai-analysis': typeof AiAnalysisRoute
   '/alerts': typeof AlertsRoute
+  '/attack-simulator': typeof AttackSimulatorRoute
   '/dashboard': typeof DashboardRoute
   '/incidents': typeof IncidentsRoute
+  '/monitoring': typeof MonitoringRoute
+  '/reports': typeof ReportsRoute
+  '/response-center': typeof ResponseCenterRoute
+  '/settings': typeof SettingsRoute
+  '/smart-city': typeof SmartCityRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai-analysis': typeof AiAnalysisRoute
   '/alerts': typeof AlertsRoute
+  '/attack-simulator': typeof AttackSimulatorRoute
   '/dashboard': typeof DashboardRoute
   '/incidents': typeof IncidentsRoute
+  '/monitoring': typeof MonitoringRoute
+  '/reports': typeof ReportsRoute
+  '/response-center': typeof ResponseCenterRoute
+  '/settings': typeof SettingsRoute
+  '/smart-city': typeof SmartCityRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/alerts' | '/dashboard' | '/incidents'
+  fullPaths:
+    | '/'
+    | '/ai-analysis'
+    | '/alerts'
+    | '/attack-simulator'
+    | '/dashboard'
+    | '/incidents'
+    | '/monitoring'
+    | '/reports'
+    | '/response-center'
+    | '/settings'
+    | '/smart-city'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/alerts' | '/dashboard' | '/incidents'
-  id: '__root__' | '/' | '/alerts' | '/dashboard' | '/incidents'
+  to:
+    | '/'
+    | '/ai-analysis'
+    | '/alerts'
+    | '/attack-simulator'
+    | '/dashboard'
+    | '/incidents'
+    | '/monitoring'
+    | '/reports'
+    | '/response-center'
+    | '/settings'
+    | '/smart-city'
+  id:
+    | '__root__'
+    | '/'
+    | '/ai-analysis'
+    | '/alerts'
+    | '/attack-simulator'
+    | '/dashboard'
+    | '/incidents'
+    | '/monitoring'
+    | '/reports'
+    | '/response-center'
+    | '/settings'
+    | '/smart-city'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiAnalysisRoute: typeof AiAnalysisRoute
   AlertsRoute: typeof AlertsRoute
+  AttackSimulatorRoute: typeof AttackSimulatorRoute
   DashboardRoute: typeof DashboardRoute
   IncidentsRoute: typeof IncidentsRoute
+  MonitoringRoute: typeof MonitoringRoute
+  ReportsRoute: typeof ReportsRoute
+  ResponseCenterRoute: typeof ResponseCenterRoute
+  SettingsRoute: typeof SettingsRoute
+  SmartCityRoute: typeof SmartCityRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -78,11 +182,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai-analysis': {
+      id: '/ai-analysis'
+      path: '/ai-analysis'
+      fullPath: '/ai-analysis'
+      preLoaderRoute: typeof AiAnalysisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/alerts': {
       id: '/alerts'
       path: '/alerts'
       fullPath: '/alerts'
       preLoaderRoute: typeof AlertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/attack-simulator': {
+      id: '/attack-simulator'
+      path: '/attack-simulator'
+      fullPath: '/attack-simulator'
+      preLoaderRoute: typeof AttackSimulatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -99,14 +217,56 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IncidentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/monitoring': {
+      id: '/monitoring'
+      path: '/monitoring'
+      fullPath: '/monitoring'
+      preLoaderRoute: typeof MonitoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/response-center': {
+      id: '/response-center'
+      path: '/response-center'
+      fullPath: '/response-center'
+      preLoaderRoute: typeof ResponseCenterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-city': {
+      id: '/smart-city'
+      path: '/smart-city'
+      fullPath: '/smart-city'
+      preLoaderRoute: typeof SmartCityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiAnalysisRoute: AiAnalysisRoute,
   AlertsRoute: AlertsRoute,
+  AttackSimulatorRoute: AttackSimulatorRoute,
   DashboardRoute: DashboardRoute,
   IncidentsRoute: IncidentsRoute,
+  MonitoringRoute: MonitoringRoute,
+  ReportsRoute: ReportsRoute,
+  ResponseCenterRoute: ResponseCenterRoute,
+  SettingsRoute: SettingsRoute,
+  SmartCityRoute: SmartCityRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
